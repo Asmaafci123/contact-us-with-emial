@@ -1,4 +1,5 @@
 import 'package:contact_us/components/formfield.dart';
+import 'package:contact_us/components/triangle.dart';
 import 'package:contact_us/cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -82,101 +83,137 @@ class ContactUsScreen extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            InkWell(
-                              onTap: (){
-                                AppCubit.get(context).changeIndex(0);
+                            Column(
+                              children: [
+                                InkWell(
+                                  onTap: (){
+                                    AppCubit.get(context).changeIndex(0);
 
-                              },
-                              child: Stack(
-                                alignment:AlignmentDirectional.center,
-                                children: [
-                                  Container(
-                                    color: AppCubit.get(context).color1,
-                                    height: 104,
-                                    width: 120,
-                                  ),
-                                  Column(
+                                  },
+                                  child: Stack(
+                                    alignment:AlignmentDirectional.center,
                                     children: [
-                                      CircleAvatar(
-                                        backgroundColor: Color(0xFF3AB44E),
-                                        child: Icon(Icons.email_outlined,color: Color(0xFFFFFFFF),size: 28,),
+                                      Container(
+                                        color: AppCubit.get(context).color1,
+                                        height: 104,
+                                        width: 120,
                                       ),
-                                      Text('Email',
-                                          style:TextStyle(
-                                              fontFamily: 'Montserrat',
-                                            fontSize: 14,
-                                            color:AppCubit.get(context).fontColor1
-                                          ))
+                                      Column(
+                                        children: [
+                                          CircleAvatar(
+                                            backgroundColor: Color(0xFF3AB44E),
+                                            child: Icon(Icons.email_outlined,color: Color(0xFFFFFFFF),size: 28,),
+                                          ),
+                                          Text('Email',
+                                              style:TextStyle(
+                                                  fontFamily: 'Montserrat',
+                                                fontSize: 14,
+                                                color:AppCubit.get(context).fontColor1
+                                              ))
+                                        ],
+                                      )
                                     ],
+                                  ),
+                                ),
+                                if(AppCubit.get(context).index==0)
+                                  Container(
+                                    height: 10,
+                                    width: 20,
+                                    child: CustomPaint(
+                                      foregroundPainter: TrianglePainter(),
+                                    ),
                                   )
-                                ],
-                              ),
+                              ],
                             ),
                             SizedBox(
                               width: 5,
                             ),
-                            InkWell(
-                              onTap: (){
-                                AppCubit.get(context).changeIndex(1);
-                              },
-                              child: Stack(
-                                alignment:AlignmentDirectional.center,
-                                children: [
-                                  Container(
-                                    color:AppCubit.get(context).color2,
-                                    height: 104,
-                                    width: 120,
-                                  ),
-                                  Column(
+                            Column(
+                              children: [
+                                InkWell(
+                                  onTap: (){
+                                    AppCubit.get(context).changeIndex(1);
+                                  },
+                                  child: Stack(
+                                    alignment:AlignmentDirectional.center,
                                     children: [
-                                      CircleAvatar(
-                                          backgroundColor: Color(0xFF3AB44E),
-                                          child: SvgPicture.asset('assets/icons/phone.svg',color: Color(0xFFFFFFFF),height: 28,width: 28,)
+                                      Container(
+                                        color:AppCubit.get(context).color2,
+                                        height: 104,
+                                        width: 120,
                                       ),
-                                      Text('Telephone',
-                                          style:TextStyle(
-                                              fontFamily: 'Montserrat',
-                                              fontSize: 14,
-                                              color:AppCubit.get(context).fontColor2
-                                          ))
+                                      Column(
+                                        children: [
+                                          CircleAvatar(
+                                              backgroundColor: Color(0xFF3AB44E),
+                                              child: SvgPicture.asset('assets/icons/phone.svg',color: Color(0xFFFFFFFF),height: 28,width: 28,)
+                                          ),
+                                          Text('Telephone',
+                                              style:TextStyle(
+                                                  fontFamily: 'Montserrat',
+                                                  fontSize: 14,
+                                                  color:AppCubit.get(context).fontColor2
+                                              ))
+                                        ],
+                                      ),
+
                                     ],
                                   ),
-
-                                ],
-                              ),
+                                ),
+                                if(AppCubit.get(context).index==1)
+                                  Container(
+                                    height: 10,
+                                    width: 20,
+                                    child: CustomPaint(
+                                      foregroundPainter: TrianglePainter(),
+                                    ),
+                                  )
+                              ],
                             ),
                             SizedBox(
                               width: 5,
                             ),
-                            InkWell(
-                              onTap: (){
-                                AppCubit.get(context).changeIndex(2);
-                              },
-                              child: Stack(
-                                alignment:AlignmentDirectional.center,
-                                children: [
-                                  Container(
-
-                                    color: AppCubit.get(context).color3,
-                                    height: 104,
-                                    width: 120,
-                                  ),
-                                  Column(
+                            Column(
+                              children: [
+                                InkWell(
+                                  onTap: (){
+                                    AppCubit.get(context).changeIndex(2);
+                                  },
+                                  child: Stack(
+                                    alignment:AlignmentDirectional.center,
                                     children: [
-                                      CircleAvatar(
-                                          backgroundColor: Color(0xFF3AB44E),
-                                          child: SvgPicture.asset('assets/icons/offices.svg',color: Color(0xFFFFFFFF),height: 28,width: 28,)
+                                      Container(
+
+                                        color: AppCubit.get(context).color3,
+                                        height: 104,
+                                        width: 120,
                                       ),
-                                      Text('Our Offices',
-                                          style:TextStyle(
-                                              fontFamily: 'Montserrat',
-                                              fontSize: 14,
-                                              color:AppCubit.get(context).fontColor3
-                                          ))
+                                      Column(
+                                        children: [
+                                          CircleAvatar(
+                                              backgroundColor: Color(0xFF3AB44E),
+                                              child: SvgPicture.asset('assets/icons/offices.svg',color: Color(0xFFFFFFFF),height: 28,width: 28,)
+                                          ),
+                                          Text('Our Offices',
+                                              style:TextStyle(
+                                                  fontFamily: 'Montserrat',
+                                                  fontSize: 14,
+                                                  color:AppCubit.get(context).fontColor3
+                                              ))
+                                        ],
+                                      )
                                     ],
+                                  ),
+                                ),
+                                if(AppCubit.get(context).index==2)
+                                  Container(
+                                    height: 10,
+                                    width: 20,
+                                    child: CustomPaint(
+                                      foregroundPainter: TrianglePainter(),
+                                    ),
                                   )
-                                ],
-                              ),
+                              ],
                             ),
 
                           ],

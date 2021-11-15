@@ -51,4 +51,30 @@ class AppCubit extends Cubit<AppStates>
       }
     emit(ChangeIndex());
   }
+
+  Color headerColor=Color(0xFF213955);
+  void changeHeaderColor(bool isTrue)
+  {
+    if(isTrue)
+      {
+        headerColor=Color(0xFF3AB44E);
+      }
+    else
+      {
+        headerColor=Color(0xFF213955);
+      }
+  }
+
+  Color borderrColor=Color(0xFFDADADA);
+  void changeBorderColor(bool isTrue)
+  {
+    if(isTrue)
+    {
+      borderrColor=Color(0xFF3AB44E);
+    }
+    else
+    {
+      borderrColor=Color(0xFF213955);
+    }
+  }
 }

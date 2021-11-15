@@ -1,22 +1,32 @@
 import 'package:flutter/material.dart';
 
-Widget defaultTextFormField(String hintText,dynamic numberOfLines,double height,double width)
+Widget defaultTextFormField(requestFocus,FocusNode focusNode1,String hintText,dynamic numberOfLines,double height,double width)
 {
   return Padding(
     padding: const EdgeInsets.all(8.0),
-    child:  SizedBox(
-        height: height,
-        width: width,
-        child: Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          elevation: 4,
-          child: TextFormField(
+    child:  Container(
+      child: TextFormField(
+            onTap: requestFocus,
+            focusNode: focusNode1,
             maxLines: numberOfLines,
             decoration: InputDecoration(
-              border: InputBorder.none,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(25),
+                borderSide: BorderSide(
+                  width: 0.7),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(25)),
+                borderSide: BorderSide(
+                  width: 0.7,color:Color(0xFF3AB44E),),
+              ),
               hintText: hintText,
+              labelText: hintText,
+              labelStyle:TextStyle(
+                  fontFamily: 'Montserrat',
+                  color: focusNode1.hasFocus?Color(0xFF3AB44E):Color(0xFFBDBDBD),
+                  fontSize: 14
+              ) ,
               hintStyle: TextStyle(
                   fontFamily: 'Montserrat',
                   color: Color(0xFFBDBDBD),
@@ -26,8 +36,7 @@ Widget defaultTextFormField(String hintText,dynamic numberOfLines,double height,
               isDense: true,
             ),
           ),
-        ),
-      ),
+    ),
 
   );
 }

@@ -1,3 +1,4 @@
+import 'package:contact_us/components/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -38,10 +39,10 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
       builder: (context,state){
         return Scaffold(
           appBar: AppBar(
-              backgroundColor: Color(0xFFFFFFFF),
+              backgroundColor: Style().whitColor,
               elevation: 0.0,
               leading: IconButton(
-                color: Color(0xFF3AB44E),
+                color: Style().greenColor,
                 onPressed: () {},
                 icon: Icon(Icons.arrow_back_ios, size: 20),
               ),
@@ -49,7 +50,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                 'About Us',
                 style: TextStyle(
                     fontSize: 22,
-                    color: Color(0xFF213955),
+                    color: Style().blueColor,
                     fontFamily: 'Montserrat_Bold'),
               ),
               actions: [
@@ -57,39 +58,22 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                     onPressed: () {},
                     icon: Icon(
                       Icons.segment,
-                      color: Color(0xFF213955),
+                      color: Style().blueColor,
                       size: 25,
                     ))
               ]),
           body: Container(
-              color: Color(0xFFFFFFFF),
+              color:Style().whitColor,
               child: ListView(
                   shrinkWrap: true,
                   children: [
-                    const Divider(
-                      color: Color(0xFFDADADA),
+                    Divider(
+                      color: Style().whitColor,
                       height: 20,
                       thickness: 2,
                       indent: 0,
                       endIndent: 0,
                     ),
-                    // ExpansionPanelList(
-                    //     expansionCallback: (int index, bool isExpanded) {
-                    //       setState(() {
-                    //         _item[index].isExpanded = !_item[index].isExpanded;
-                    //       });
-                    //     },
-                    //     children: _item.map((MyItem item) {
-                    //       return ExpansionPanel(
-                    //         headerBuilder: (BuildContext context, bool isExpanded) {
-                    //           return Text(item.header);
-                    //         },
-                    //         isExpanded: item.isExpanded,
-                    //         body: Container(
-                    //           child: Text(item.body),
-                    //         ),
-                    //       );
-                    //     }).toList()),
                     Card(
                       elevation: 3,
                       child: ExpansionTile(
@@ -98,7 +82,10 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                           Icons.keyboard_arrow_down_outlined,
                           color: AppCubit.get(context).headerColor,
                         ),
-                        title: Text(_item[0].header,style: TextStyle(color:Color(0xFF213955),),),
+                        title: Text(
+                          _item[0].header,
+                          style: TextStyle(
+                            color:Style().blueColor,),),
                         onExpansionChanged: (bool exchange)
                         {
                           setState(() {
@@ -108,14 +95,23 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                           });
                         },
                         children: <Widget>[
-                          const Divider(
-                            color: Color(0xFFDADADA),
+                        Divider(
+                            color: Style().whitColor,
                             height: 20,
                             thickness: 1,
                             indent: 18,
                             endIndent: 18,
                           ),
-                          ListTile(title: Text(_item[0].body,textAlign: TextAlign.start,style: TextStyle(fontFamily: 'Montserrat',fontSize: 12,color: Color(0xFF828282),height: 2,fontWeight: FontWeight.w400,letterSpacing: 1))),
+                          ListTile(title: Text(
+                              _item[0].body,
+                              textAlign: TextAlign.start,
+                              style: TextStyle(
+                                  fontFamily: 'Montserrat',
+                                  fontSize: 12,
+                                  color: Style().greyColor,
+                                  height: 2,
+                                  fontWeight: FontWeight.w400,
+                                  letterSpacing: 1))),
 
                         ],
                       ),
@@ -123,34 +119,50 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                     Card(
                         elevation: 3,
                         child:ExpansionTile(
-                          trailing: Icon(Icons.keyboard_arrow_down_outlined,color: Color(0xFF213955),),
-                          title: Text(_item[1].header,style: TextStyle(color:Color(0xFF213955))),
+                          trailing: Icon(
+                            Icons.keyboard_arrow_down_outlined,
+                            color:Style().blueColor,),
+                          title: Text(
+                              _item[1].header,
+                              style: TextStyle(color:Style().blueColor)),
                           children: <Widget>[
-                            const Divider(
-                              color: Color(0xFFDADADA),
+                            Divider(
+                              color:Style().whitColor,
                               height: 20,
                               thickness: 1,
                               indent: 31,
                               endIndent: 31,
                             ),
-                            ListTile(title: Text(_item[1].body,style: TextStyle(fontFamily: 'Montserrat',fontSize: 12,color: Color(0xFF828282)))),
+                            ListTile(title:
+                            Text(_item[1].body,
+                                style: TextStyle(
+                                    fontFamily: 'Montserrat',
+                                    fontSize: 12,
+                                    color: Style().greyColor))),
 
                           ],
                         )),
                     Card(
                       elevation: 3,
                       child: ExpansionTile(
-                        trailing: Icon(Icons.keyboard_arrow_down_outlined,color: Color(0xFF213955),),
-                        title: Text(_item[2].header,style: TextStyle(color:Color(0xFF213955))),
+                        trailing: Icon(
+                          Icons.keyboard_arrow_down_outlined,
+                          color: Style().blueColor,),
+                        title: Text(_item[2].header,style: TextStyle(color:Style().blueColor)),
                         children: <Widget>[
-                          const Divider(
-                            color: Color(0xFFDADADA),
+                          Divider(
+                            color:Style().whitColor,
                             height: 20,
                             thickness: 1,
                             indent: 31,
                             endIndent: 31,
                           ),
-                          ListTile(title: Text(_item[2].body,style: TextStyle(fontFamily: 'Montserrat',fontSize: 12,color: Color(0xFF828282)),)),
+                          ListTile(title: Text(
+                            _item[2].body,
+                            style: TextStyle(
+                                fontFamily: 'Montserrat',
+                                fontSize: 12,
+                                color: Style().greyColor),)),
 
                         ],
                       ),
@@ -158,17 +170,24 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                     Card(
                       elevation: 3,
                       child: ExpansionTile(
-                        trailing: Icon(Icons.keyboard_arrow_down_outlined,color: Color(0xFF213955),),
-                        title: Text(_item[3].header,style: TextStyle(color:Color(0xFF213955))),
+                        trailing: Icon(
+                          Icons.keyboard_arrow_down_outlined,
+                          color: Style().blueColor,),
+                        title: Text(_item[3].header,style: TextStyle(color:Style().blueColor)),
                         children: <Widget>[
-                          const Divider(
-                            color: Color(0xFFDADADA),
+                         Divider(
+                            color: Style().whitColor,
                             height: 20,
                             thickness: 1,
                             indent: 31,
                             endIndent: 31,
                           ),
-                          ListTile(title: Text(_item[3].body,style: TextStyle(fontFamily: 'Montserrat',fontSize: 12,color: Color(0xFF828282)))),
+                          ListTile(title:
+                          Text(_item[3].body,
+                              style: TextStyle(
+                                  fontFamily: 'Montserrat',
+                                  fontSize: 12,
+                                  color: Style().greyColor))),
 
                         ],
                       ),

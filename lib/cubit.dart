@@ -1,80 +1,84 @@
 import 'package:contact_us/state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'components/theme.dart';
 class AppCubit extends Cubit<AppStates>
 {
   AppCubit() :super(AppInitialState());
 
   static AppCubit get(context) => BlocProvider.of(context);
   int index=0;
-  Color color1=Color(0xFF3AB44E);
-  Color color2=Color(0xFFFFFFFF);
-  Color color3=Color(0xFFFFFFFF);
-  Color fontColor1=Color(0xFFFFFFFF);
-  Color fontColor2=Color(0xFF213955);
-  Color fontColor3=Color(0xFF213955);
+  Color color1=Style().greenColor;
+  Color color2=Style().whitColor;
+  Color color3=Style().whitColor;
+  Color fontColor1=Style().whitColor;
+  Color fontColor2=Style().blueColor;
+  Color fontColor3=Style().blueColor;
 
   void changeIndex(int ind)
   {
     index=ind;
     if(index==0)
-      {
-        color1=Color(0xFF3AB44E);
-        color2=Color(0xFFFFFFFF);
-        color3=Color(0xFFFFFFFF);
+    {
+      color1=Style().greenColor;
+      color2=Style().whitColor;
+      color3=Style().whitColor;
 
 
-        fontColor1=Color(0xFFFFFFFF);
-        fontColor2=Color(0xFF213955);
-        fontColor3=Color(0xFF213955);
-      }
+      fontColor1=Style().whitColor;
+      fontColor2=Style().blueColor;
+      fontColor3=Style().blueColor;
+    }
     else if(index==1)
-      {
-        color2=Color(0xFF3AB44E);
-        color1=Color(0xFFFFFFFF);
-        color3=Color(0xFFFFFFFF);
+    {
+      color2=Style().greenColor;
+      color1=Style().whitColor;
+      color3=Style().whitColor;
 
-        fontColor2=Color(0xFFFFFFFF);
-        fontColor1=Color(0xFF213955);
-        fontColor3=Color(0xFF213955);
+      fontColor2=Style().whitColor;
+      fontColor1=Style().blueColor;
+      fontColor3=Style().blueColor;
 
-      }
+    }
     else
-      {
-        color3=Color(0xFF3AB44E);
-        color1=Color(0xFFFFFFFF);
-        color2=Color(0xFFFFFFFF);
+    {
+      color3=Style().greenColor;
+      color1=Style().whitColor;
+      color2=Style().whitColor;
 
-        fontColor3=Color(0xFFFFFFFF);
-        fontColor2=Color(0xFF213955);
-        fontColor1=Color(0xFF213955);
-      }
+      fontColor3=Style().whitColor;
+      fontColor2=Style().blueColor;
+      fontColor1=Style().blueColor;
+    }
     emit(ChangeIndex());
   }
 
-  Color headerColor=Color(0xFF213955);
+  Color headerColor=Style().blueColor;
   void changeHeaderColor(bool isTrue)
   {
     if(isTrue)
-      {
-        headerColor=Color(0xFF3AB44E);
-      }
+    {
+      headerColor=Style().greenColor;
+    }
     else
-      {
-        headerColor=Color(0xFF213955);
-      }
+    {
+      headerColor=Style().blueColor;
+    }
+    emit(changeHeaderColorState());
   }
 
-  Color borderrColor=Color(0xFFDADADA);
+  Color borderColor=Style().whitColor;
   void changeBorderColor(bool isTrue)
   {
     if(isTrue)
     {
-      borderrColor=Color(0xFF3AB44E);
+      borderColor=Style().greenColor;
     }
     else
     {
-      borderrColor=Color(0xFF213955);
+      borderColor=Style().blueColor;
     }
+    emit(changeBorderColorState());
   }
 }
